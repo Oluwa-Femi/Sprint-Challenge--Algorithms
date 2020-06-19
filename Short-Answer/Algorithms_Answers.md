@@ -15,4 +15,16 @@ c)  Runtime complexity is `O(1)` because the amount of bunnies is a constant val
 
 ## Exercise II
 
+U   - Number of floors is unknown, n
+    - Eggs will only break if thrown off floor >= F
+    - If egg is dropped off floor < F, eggs will not break
+    - Find F such that every floor beneath it doesn't break our eggs
 
+S   - Create a binary search tree from n
+    - The root node is the highest floor
+    - Check if the egg breaks when dropped on each left node
+    - If the egg breaks, continue to the left node
+    - else if the egg doesn't break continue to the right node
+    - When the egg eventually breaks on a node, save and return that value
+
+The runtime depends on which floor the egg breaks, if it breaks on the first floor that means we have to transverse the entire tree before a value is returned which will mean a runtime of O(n) at the maximum else runtime should be 0(log(n))
